@@ -1,0 +1,23 @@
+{
+  "name": "website-richardmin",
+  "version": "1.0.0",
+  "description": "source code for my nodejs part of my website",
+  "main": "index.js",
+  "repository": "http://github.com/richardmin97/website-nodejs",
+  "author": "Richard Min <richardmin97@gmail.com>",
+  "license": "Apache",
+  "dependencies": {
+    "@types/react": "^0.14.52",
+    "@types/react-dom": "^0.14.19",
+    "bootstrap": "^3.3.7",
+    "node-sass": "^3.13.0",
+    "react": "^15.4.1",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.1",
+    "sass-loader": "^4.0.2",
+    "source-map-loader": "^0.1.5",
+    "ts-loader": "^1.2.2",
+    "typescript": "^2.1.4",
+    "webpack": "^1.13.3"
+  }
+}
