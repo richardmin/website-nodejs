@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "http://github.com/richardmin97/website-nodejs",
   "author": "Richard Min <richardmin97@gmail.com>",
-  "license": "Apache",
+  "license": "Apache-2.0",
   "dependencies": {
     "@types/react": "^0.14.52",
     "@types/react-dom": "^0.14.19",
