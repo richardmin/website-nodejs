@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@types/immutable@^3.8.6":
+  version "3.8.6"
+  resolved "https://registry.yarnpkg.com/@types/immutable/-/immutable-3.8.6.tgz#3612786c3c5ba4084cc9bf18b7eaf925438a00e5"
+
 "@types/node@^6.0.53":
   version "6.0.53"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.53.tgz#8c300ca8ba51f80f98f3525b932ff47c6efd6be1"
@@ -15,10 +19,6 @@
 "@types/react@*", "@types/react@^0.14.55":
   version "0.14.55"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.55.tgz#f7f7a6ad0c94780531e95632435b2798c5dad11b"
-
-"@types/requirejs@^2.1.28":
-  version "2.1.28"
-  resolved "https://registry.yarnpkg.com/@types/requirejs/-/requirejs-2.1.28.tgz#bfb2c1d5a03a22ab137ff020abae9338b66efdad"
 
 abbrev@1:
   version "1.0.9"
