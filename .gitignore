@@ -41,3 +41,4 @@ ts-build
 
 # Webpack generated
 dist
+js
