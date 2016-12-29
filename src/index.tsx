@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 const { AppContainer } = require('react-hot-loader');
+import { Router, Route, Link, browserHistory } from 'react-router';
 
 import { FrontPage } from 'containers/FrontPage';
 
