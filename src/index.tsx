@@ -3,28 +3,34 @@ import { render } from 'react-dom';
 const { AppContainer } = require('react-hot-loader');
 import { Router, Route, Link, browserHistory } from 'react-router';
 
-import { FrontPage } from 'containers/FrontPage';
-
+// import { Front } from 'views/Front';
+import routes from 'routes';
 declare var module: { hot: any };
 
 const rootEl = document.getElementById('app');
 
 render(
-  <AppContainer>
-    <FrontPage />
-  </AppContainer>,
+  <Router history={browserHistory}>
+      {routes}
+  </Router>,
   rootEl
 )
+// render(
+//   <AppContainer>
+//     <Front />
+//   </AppContainer>,
+//   rootEl
+// )
 
-if (module.hot) {
-  module.hot.accept('./containers/FrontPage', () => {
-    const NextApp = require('./containers/FrontPage').default;
+// if (module.hot) {
+//   module.hot.accept('./views/Front', () => {
+//     const NextApp = require('./views/Front').default;
 
-    render(
-      <AppContainer>
-         <NextApp />
-      </AppContainer>,
-      rootEl
-    )
-  })
-}
+//     render(
+//       <AppContainer>
+//          <NextApp />
+//       </AppContainer>,
+//       rootEl
+//     )
+//   })
+// }
