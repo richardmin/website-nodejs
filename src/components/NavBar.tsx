@@ -1,19 +1,28 @@
 import * as React from 'react';
+import { Link } from 'react-router';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 export class NavBar extends React.Component<any, any> {
     render() {
         return <Navbar>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <a href="/ ">Richard Min</a>
+                            <Link to="/">Richard Min</Link>
                         </Navbar.Brand>
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav>
-                            <NavItem eventKey={1} href="/about">About</NavItem>
-                            <NavItem eventKey={2} href="/blog">Posts</NavItem>
-                            <NavItem eventKey={3} href="/projects">Projects</NavItem>
+                            <LinkContainer to={{ pathname: '/about'}}>
+                                <NavItem eventKey={1}>About</NavItem>
+                            </LinkContainer>
+                            <LinkContainer to={{ pathname: '/blog'}}>
+                                <NavItem eventKey={2} href="/blog">Posts</NavItem>
+                            </LinkContainer>
+                            <LinkContainer to={{ pathname: '/projects'}}>
+                                <NavItem eventKey={3} href="/projects">Projects</NavItem>
+                            </LinkContainer>
+                            
                         </Nav>
                         <Nav pullRight>
                             <NavItem href="//www.github.com/richardmin97">Github</NavItem>
