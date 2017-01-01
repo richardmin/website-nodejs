@@ -12,7 +12,7 @@ module.exports = {
   ],
   output: {
     filename: 'app.js',
-    publicPath: '/js',
+    publicPath: '/assets/js',
     path: path.resolve('dist')
   },
   resolve: {
