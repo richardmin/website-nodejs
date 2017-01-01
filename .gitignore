@@ -42,3 +42,6 @@ ts-build
 # Webpack generated
 dist
 js
+
+# Environment Secrets
+.env
