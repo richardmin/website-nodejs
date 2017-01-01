@@ -13,14 +13,11 @@ export class NavBar extends React.Component<any, any> {
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav>
-                            <LinkContainer to={{ pathname: '/about'}}>
-                                <NavItem eventKey={1}>About</NavItem>
-                            </LinkContainer>
                             <LinkContainer to={{ pathname: '/blog'}}>
-                                <NavItem eventKey={2} href="/blog">Posts</NavItem>
+                                <NavItem eventKey={1} href="/blog">Posts</NavItem>
                             </LinkContainer>
                             <LinkContainer to={{ pathname: '/projects'}}>
-                                <NavItem eventKey={3} href="/projects">Projects</NavItem>
+                                <NavItem eventKey={2} href="/projects">Projects</NavItem>
                             </LinkContainer>
                             
                         </Nav>

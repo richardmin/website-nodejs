@@ -22,15 +22,15 @@ render(
 //   rootEl
 // )
 
-// if (module.hot) {
-//   module.hot.accept('./views/Front', () => {
-//     const NextApp = require('./views/Front').default;
+if (module.hot) {
+  module.hot.accept('./views/Front', () => {
+    const NextApp = require('./views/Front').default;
 
-//     render(
-//       <AppContainer>
-//          <NextApp />
-//       </AppContainer>,
-//       rootEl
-//     )
-//   })
-// }
+    render(
+      <Router history={browserHistory}>
+          {routes}
+      </Router>,
+      rootEl
+    )
+  })
+}
