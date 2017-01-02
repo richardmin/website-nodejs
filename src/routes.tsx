@@ -8,7 +8,6 @@ import { Projects } from 'views/Projects';
 import { NotFound } from 'views/NotFound';
 import { AppFrame } from 'views/AppFrame';
 
-//
 var routes = (
     <Route path="/" component={AppFrame}>
         <IndexRoute component={Front} />
