@@ -8,14 +8,14 @@ interface BlogPostList {
     title: string,
     description: string,
     post: string,
-    
+
 };
 
 
 export class Blog extends React.Component<any, any> {
     getBlogPosts() {
-
-    }
+        
+    }   
 
     render() {
         return <MainContent>
