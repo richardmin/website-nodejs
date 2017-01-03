@@ -16,7 +16,8 @@ interface BlogPostList {
 
 export class Blog extends React.Component<any, any> {
     getBlogPosts() {
-        databaseConnection('SELECT * FROM posts', null, function(err, rows, fields) {
+        let query = "SELECT * FROM posts";
+        databaseConnection(query, null, function(err, rows, fields) {
             if(err) throw err;
 
             console.log("the solution is: ", rows[0].solution);
@@ -31,7 +32,7 @@ export class Blog extends React.Component<any, any> {
         return <MainContent>
             Content will be inserted here ... eventually.
             First TODO.
-            <BlogPost name="Richard" date={new Date(Date.now())} title="Something magical or another" description="A magical way to do tests" />
+            <BlogPreview name="Richard" date={new Date(Date.now())} title="Something magical or another" description="A magical way to do tests" />
         </MainContent>;
     }
 }

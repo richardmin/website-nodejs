@@ -3,8 +3,8 @@ import databaseConnection from 'database';
 
 export class BlogPost extends React.Component<any, any> {
     getBlogPost() {
-        
-        databaseConnection('SELECT * FROM posts WHERE POSTID = ?', this.props.params.postId, function(err, rows, fields) {
+        let query = "SELECT * FROM posts where POSTID = ?";
+        databaseConnection(query, this.props.params.postId, function(err, rows, fields) {
             if(err) throw err;
 
             console.log("the solution is: ", rows[0].solution);
@@ -26,7 +26,10 @@ export class BlogPost extends React.Component<any, any> {
             </div>;
         }
         else {
-
+            //TODO: Find out a better way to do this more REACT style -- save a string as REACT?
+            return <div>
+                <div dangerouslySetInnerHTML={{__html: this.state.post}} />
+            </div>;
         }
     }
 }

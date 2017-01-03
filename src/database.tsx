@@ -1,11 +1,6 @@
 var mysql = require('mysql');
 
 export default function (sqlString: string, values, callback: Function) {
-    if (arguments.length === 2) {
-        callback = values;
-        values = null;
-    }
-
     var connection = mysql.createConnection({
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
