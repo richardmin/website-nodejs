@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-export interface BlogPostProps { name: string, description: string, date: Date, title: string }
+export interface BlogPreviewProps { name: string, description: string, date: Date, title: string }
 
-export class BlogPost extends React.Component<BlogPostProps, any> {
+export class BlogPreview extends React.Component<BlogPostProps, any> {
 
     render() {
         return <div className="post">

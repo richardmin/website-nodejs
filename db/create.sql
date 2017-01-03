@@ -1,4 +1,7 @@
-CREATE TABLE blog(
+CREATE DATABASE blog;
+use blog;
+
+CREATE TABLE posts(
     ID              INT             NOT NULL,
     NAME            VARCHAR(40)     NOT NULL,
     POSTDATE        DATETIME        NOT NULL,

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { MainContent } from 'components/MainContent';
-import { BlogPost } from 'components/BlogPost';
+import { BlogPreview } from 'components/BlogPreview';
+
+import databaseConnection from 'database';
 
 interface BlogPostList {
     name: string,
@@ -14,8 +16,16 @@ interface BlogPostList {
 
 export class Blog extends React.Component<any, any> {
     getBlogPosts() {
-        
+        databaseConnection('SELECT * FROM posts', null, function(err, rows, fields) {
+            if(err) throw err;
+
+            console.log("the solution is: ", rows[0].solution);
+        })
     }   
+
+    componentDidMount() {
+        this.getBlogPosts();
+    }
 
     render() {
         return <MainContent>

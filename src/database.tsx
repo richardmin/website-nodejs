@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 
-var sqlConnection = function sqlConnection(sql, query, next) {
+export default function (sqlString: string, values, callback: Function) {
     if (arguments.length === 2) {
-        next = query;
-        query = null;
+        callback = values;
+        values = null;
     }
 
     var connection = mysql.createConnection({
@@ -19,14 +19,12 @@ var sqlConnection = function sqlConnection(sql, query, next) {
         }
     });
 
-    connection.query(sql, query, function(err) {
+    connection.query(sqlString, values, function(err) {
         connection.end();
 
         if (err) {
             throw err;
         }
-        next.apply(this, arguments);
+        callback.apply(this, arguments);
     });
 }
-
-module.exports = sqlConnection;
