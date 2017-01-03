@@ -6,7 +6,7 @@ import { Front } from 'views/Front';
 import { Blog } from 'views/Blog';
 import { BlogPost } from 'views/BlogPost';
 import { Projects } from 'views/Projects';
-import { NotFound } from 'views/NotFound';
+import { NotFound } from 'components/NotFound';
 import { AppFrame } from 'views/AppFrame';
 
 var routes = (
