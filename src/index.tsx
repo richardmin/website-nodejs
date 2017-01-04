@@ -24,11 +24,11 @@ render(
 
 if (module.hot) {
   module.hot.accept('./views/Front', () => {
-    const NextApp = require('./views/Front').default;
+    const NextApp = require('routes').default;
 
     render(
       <Router history={browserHistory}>
-          {routes}
+          {NextApp}
       </Router>,
       rootEl
     )

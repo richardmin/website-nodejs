@@ -23,6 +23,7 @@ module.exports = {
     loaders: [
       { test: /\.tsx?$/, loaders: ['babel', 'ts-loader'] },
       { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+      { test: /\.json$/, loader: 'json-loader' },
     ],
 
     preloaders: [
@@ -32,5 +33,12 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new WebpackNotifierPlugin({ alwaysNotify: true }),
-  ]
+  ], 
+
+  node: {
+    console: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  }
 };

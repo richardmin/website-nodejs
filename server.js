@@ -4,7 +4,6 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./config/webpack.config');
 
-if(process.env.NODE_ENV === 'development') {
   new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
     hot: true,
@@ -16,7 +15,3 @@ if(process.env.NODE_ENV === 'development') {
 
     console.log('Listening at http://localhost:3000/');
   });
-}
-else {
-
-}

@@ -49,7 +49,7 @@ export class BlogPost extends React.Component<any, any> {
             queryComplete: false
         });
         this.getBlogPost();
-    },
+    }
 
     render() {
         if(!this.state.queryComplete) {
