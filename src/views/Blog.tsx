@@ -35,7 +35,7 @@ export class Blog extends React.Component<any, any> {
                 })
             }
             
-        })
+        });
     }   
 
     componentDidMount() {
