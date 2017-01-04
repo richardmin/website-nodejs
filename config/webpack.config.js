@@ -35,10 +35,5 @@ module.exports = {
     new WebpackNotifierPlugin({ alwaysNotify: true }),
   ], 
 
-  node: {
-    console: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty'
-  }
+  target: 'node',
 };
