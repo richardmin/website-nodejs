@@ -15,12 +15,26 @@ interface BlogPostList {
 
 
 export class Blog extends React.Component<any, any> {
+
+    // Todo: replace with an AJAX call
     getBlogPosts() {
         let query = "SELECT * FROM posts";
-        databaseConnection(query, null, function(err, rows, fields) {
-            if(err) throw err;
-
-            console.log("the solution is: ", rows[0].solution);
+        databaseConnection(query, null, function(err, rows) {
+            if(err) {
+                this.setState({
+                    queryComplete: true,
+                    post: err,
+                    error: true,
+                });
+                console.log("[MYSQL]: MYSQL query failed. Query: " + query + " Result: " + err);
+            }
+            else {
+                this.setState({
+                    queryComplete: true,
+                    posts: rows
+                })
+            }
+            
         })
     }   
 
@@ -29,10 +43,30 @@ export class Blog extends React.Component<any, any> {
     }
 
     render() {
-        return <MainContent>
-            Content will be inserted here ... eventually.
-            First TODO.
-            <BlogPreview name="Richard" date={new Date(Date.now())} title="Something magical or another" description="A magical way to do tests" />
-        </MainContent>;
+        if(!this.state.queryComplete) {
+            return <MainContent>
+                Currenty Loading...
+            </MainContent>;
+        } 
+        else if(!this.state.error) { 
+            let formatted_posts = [];
+            for(var i = 0; i < this.state.posts.length; i++) {
+                formatted_posts.push(
+                    <BlogPreview name={this.state.posts[i].name} 
+                                 date={this.state.posts[i].postdate} 
+                                 description={this.state.posts[i].description} 
+                                 title={this.state.posts[i].title} />
+                );
+            }
+            return <MainContent>
+                {formatted_posts}
+            </MainContent>;
+        }
+        else {
+            return <MainContent>
+                <h2>Error: {this.state.post}</h2>
+            </MainContent>;
+        }
+
     }
 }
