@@ -7,7 +7,7 @@ CREATE TABLE posts(
 
     TITLE           VARCHAR(400)    NOT NULL,
     DESCRIPTION     VARCHAR(1000)   NOT NULL,
-    POST            VARCHAR(100000)   NOT NULL,
+    POST            MEDIUMTEXT   NOT NULL,
     
     POSTDATE        DATETIME        NOT NULL,
     UPDATETIME      DATETIME        NOT NULL,

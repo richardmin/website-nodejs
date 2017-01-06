@@ -35,5 +35,5 @@ module.exports = {
     new WebpackNotifierPlugin({ alwaysNotify: true }),
   ], 
 
-  target: 'node',
+  // target: 'node',
 };
