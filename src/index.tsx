@@ -15,18 +15,19 @@ render(
     </Router>
   </AppContainer>,
   rootEl
-)
+);
+
 if (module.hot) {
   module.hot.accept('routes', () => {
-    const NextApp = require('routes').default;
+    const newRoutes = require('routes').default;
 
     render(
       <AppContainer>
         <Router history={browserHistory}>
-            {NextApp}
+            {newRoutes}
         </Router>
       </AppContainer>,
       rootEl
     )
-  })
+  });
 }

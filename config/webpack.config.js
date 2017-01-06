@@ -6,8 +6,7 @@ module.exports = {
   devtool: 'eval',
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
+    'webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr',
     './src/index.tsx'
   ],
   output: {
@@ -32,6 +31,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     new WebpackNotifierPlugin({ alwaysNotify: true }),
   ], 
 

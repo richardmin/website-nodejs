@@ -10,7 +10,6 @@ import { AppFrame } from 'views/AppFrame';
 
 var routes = (
     <Route path="/" component={AppFrame}>
-
         <IndexRoute component={Front} />
         <Route path="blog" component={Blog}>
             <Route path="/blog/:postId" component={BlogPost} />
