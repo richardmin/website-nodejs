@@ -39,19 +39,20 @@ function databaseConnection(sqlString, values, callback) {
 }
 
 
+if(process.env.NODE_ENV === "development") {
+    app.use(webpackDevMiddleware(compiler, {
+        publicPath: config.output.publicPath,
+        stats: {colors: true},
+        hot: true,
+        historyApifallBack: true
+    }))
 
-app.use(webpackDevMiddleware(compiler, {
-    publicPath: config.output.publicPath,
-    stats: {colors: true},
-    hot: true,
-    historyApifallBack: true
-}))
+    app.use(webpackHotMiddleware(compiler, {
+        log: console.log
+    }))
+}
 
-app.use(webpackHotMiddleware(compiler, {
-    log: console.log
-}))
-
-app.get('/blog/:postId', function(req, res) {
+app.get('/api/blog/:postId', function(req, res) {
     let query = "SELECT * FROM posts where ID = " + req.params.postId;
     databaseConnection(query, null, function(err, rows) {
         if(err) {
@@ -62,7 +63,7 @@ app.get('/blog/:postId', function(req, res) {
     });
 });
 
-app.get('/blog', function(req, res) {
+app.get('/api/blog', function(req, res) {
     let query = "SELECT * FROM posts";
     databaseConnection(query, null, function(err, rows) {
         if(err) {
@@ -74,18 +75,6 @@ app.get('/blog', function(req, res) {
 });
 
 app.use(express.static(path.join(__dirname, '.')));
-
-  // new WebpackDevServer(webpack(config), {
-  //   publicPath: config.output.publicPath,
-  //   hot: true,
-  //   historyApiFallback: true
-  // }).listen(3000, 'localhost', function (err, result) {
-  //   if (err) {
-  //     return console.log(err);
-  //   }
-
-  //   console.log('Listening at http://localhost:3000/');
-  // });
 
 app.listen(3000, function(err, res) {
   if (err) return console.log(err);

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { MainContent } from 'components/MainContent';
 import { BlogPreview } from 'components/BlogPreview';
 
-import databaseConnection from 'database';
+// import databaseConnection from 'database';
 
 interface BlogPostList {
     name: string,
@@ -18,25 +18,14 @@ export class Blog extends React.Component<any, any> {
 
     // Todo: replace with an AJAX call
     getBlogPosts() {
-        let query = "SELECT * FROM posts";
-        databaseConnection(query, null, function(err, rows) {
-            if(err) {
-                this.setState({
-                    queryComplete: true,
-                    post: err,
-                    error: true,
-                });
-                console.log("[MYSQL]: MYSQL query failed. Query: " + query + " Result: " + err);
-            }
-            else {
-                this.setState({
-                    queryComplete: true,
-                    posts: rows
-                })
-            }
-            
-        });
+        
     }   
+
+    componentWillMount() {
+        this.setState({
+            queryComplete: false
+        });
+    }
 
     componentDidMount() {
         this.getBlogPosts();
