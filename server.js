@@ -74,7 +74,9 @@ app.get('/api/blog', function(req, res) {
     });
 });
 
-app.use(express.static(path.join(__dirname, '.')));
+app.get("*", function(req, res) {
+    res.sendFile("index.html", { root: '.'});
+});
 
 app.listen(3000, function(err, res) {
   if (err) return console.log(err);
