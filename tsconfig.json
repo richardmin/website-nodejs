@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "module": "es6",
+    // should be es6. https://github.com/TypeStrong/ts-node/issues/182
+    "module": "commonjs",
     "target": "es6",
     "moduleResolution": "node",
     "baseUrl": "src",

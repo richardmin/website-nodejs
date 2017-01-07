@@ -1,34 +1,14 @@
 'use strict';
+
 require('dotenv').config();
-require('typescript-require');
 var express = require('express');
 let app = express();
 var path = require('path');
 var mysql = require('mysql');
 
-function databaseConnection(sqlString, values, callback) {
-    var connection = mysql.createConnection({
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASS,
-        database: 'blog'
-    });
-
-    connection.connect(function(err) {
-        if (err !== null) {
-            console.log("[MYSQL] Error connecting to mysql:" + err);
-        }
-    });
-
-    connection.query(sqlString, values, function(err) {
-        connection.end();
-        if (err !== null) {
-            console.log("[MYSQL] Error with mysql query:" + err);
-        }
-        callback.apply(this, arguments);
-    });
-}
-
+// require('ts-node').register();
+import { database } from "./src/database";
+// var database = require('./src/database');
 
 if(process.env.NODE_ENV === "development") {
 
@@ -53,8 +33,8 @@ if(process.env.NODE_ENV === "development") {
 }
 
 app.get('/api/blog/:postId', function(req, res) {
-    let query = "SELECT * FROM posts where ID = " + req.params.postId;
-    databaseConnection(query, null, function(err, rows) {
+    var blogConnection =  new database("blog");
+    blogConnection.databaseConnection("SELECT * FROM posts where ID = ?", req.params.postId, function (err, rows) {
         if(err) {
             res.status(503).json({ error: err.code });
         }
@@ -65,8 +45,8 @@ app.get('/api/blog/:postId', function(req, res) {
 });
 
 app.get('/api/blog', function(req, res) {
-    let query = "SELECT * FROM posts";
-    databaseConnection(query, null, function(err, rows) {
+    var blogConnection = new database("blog");
+    blogConnection.databaseConnection("SELECT * FROM posts", null, function (err, rows) {
         if(err) {
             res.status(503).json({ error: err.code });
         } 
@@ -81,6 +61,7 @@ app.get("*", function(req, res) {
 });
 
 app.listen(3000, function(err, res) {
-  if (err) return console.log(err);
+  if (err) 
+    return console.log(err);
   console.log('listening on 3000');
 });
