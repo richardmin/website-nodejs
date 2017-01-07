@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NotFound } from 'components/NotFound';
 import { MainContent } from 'components/MainContent';
-
+import { Loading } from 'components/Loading';
 export class BlogPost extends React.Component<any, any> {
 
     // Todo: replace with an AJAX call

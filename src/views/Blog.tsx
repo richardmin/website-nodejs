@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { MainContent } from 'components/MainContent';
 import { BlogPreview } from 'components/BlogPreview';
+import { Loading } from 'components/Loading';
 
 // import databaseConnection from 'database';
 
@@ -34,7 +35,7 @@ export class Blog extends React.Component<any, any> {
     render() {
         if(!this.state.queryComplete) {
             return <MainContent>
-                Currenty Loading...
+                <Loading />
             </MainContent>;
         } 
         else if(!this.state.error) { 
