@@ -7,9 +7,12 @@ CREATE TABLE posts(
 
     TITLE           VARCHAR(400)    NOT NULL,
     DESCRIPTION     VARCHAR(1000)   NOT NULL,
-    POST            MEDIUMTEXT   NOT NULL,
+    POST            MEDIUMTEXT      NOT NULL,
     
     POSTDATE        DATETIME        NOT NULL,
     UPDATETIME      DATETIME        NOT NULL,
-    PRIMARY KEY(ID)
+
+    SEO             VARCHAR(50)     NOT NULL,
+    PRIMARY KEY(ID),
+    UNIQUE(SEO)
 );
