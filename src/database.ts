@@ -12,15 +12,11 @@ export class database {
             database: this.database
         });
 
-        connection.connect(function(err) {
-            if (err !== null) {
-                console.log("[MYSQL] Error connecting to mysql:" + err+'\n');
-            }
-        });
+        connection.connect();
 
         connection.query(sqlString, values, function(err) {
             if (err) {
-                throw err;
+                console.log("[MYSQL] Error connecting to mysql:" + err+'\n');
             }
             callback.apply(this, arguments);
         });
