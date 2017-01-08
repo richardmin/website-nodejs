@@ -2,17 +2,19 @@ CREATE DATABASE blog;
 use blog;
 
 CREATE TABLE posts(
-    ID              INT             NOT NULL,
-    NAME            VARCHAR(40)     NOT NULL,
+    id              INT             NOT NULL        AUTO_INCREMENT  primary key,
+    name            VARCHAR(40)     NOT NULL,
 
-    TITLE           VARCHAR(400)    NOT NULL,
-    DESCRIPTION     VARCHAR(1000)   NOT NULL,
-    POST            MEDIUMTEXT      NOT NULL,
+    title           VARCHAR(400)    NOT NULL,
+    description     VARCHAR(1000)   NOT NULL,
+    post            MEDIUMTEXT      NOT NULL,
     
-    POSTDATE        DATETIME        NOT NULL,
-    UPDATETIME      DATETIME        NOT NULL,
+    postdate        TIMESTAMP       NOT NULL default now(),
+    updatetime      TIMESTAMP       NOT NULL default now() on update now(),
 
-    SEO             VARCHAR(50)     NOT NULL,
-    PRIMARY KEY(ID),
-    UNIQUE(SEO)
+    seo             VARCHAR(50)     NOT NULL
 );
+
+
+-- INSERT INTO posts(NAME, TITLE, DESCRIPTION, POST, SEO)
+--             VALUES ('Richard', 'Test post', 'test description', 'test post data', 'test SEO');

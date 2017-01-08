@@ -2,21 +2,27 @@ import * as React from 'react';
 import { NotFound } from 'components/NotFound';
 import { MainContent } from 'components/MainContent';
 import { Loading } from 'components/Loading';
+import axios from 'axios';
+
 export class BlogPost extends React.Component<any, any> {
 
-    // Todo: replace with an AJAX call
-    getBlogPost() {
-        
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            queryComplete: false,
+            postId: this.props.params.postId,
+            error: false
+        };
     }
 
-    componentWillMount() {
-        this.setState({
-            queryComplete: false,
-            postId: this.props.params.postId
-        });
-    }
     componentDidMount() {
-        this.getBlogPost();
+        axios.get('/api/blog/' + this.state.postId)
+            .then(res => {
+                const postData = res.data.data[0];
+                this.setState({ postData });
+                this.setState({ queryComplete: true });
+            });
     }
 
     render() {
@@ -25,14 +31,7 @@ export class BlogPost extends React.Component<any, any> {
                 Currently loading...
             </MainContent>;
         }
-        else if(!this.state.error) {
-            // TODO: Find out a better way to do this more REACT style -- save a string as JSX?
-            // Alternatively, 
-            return <MainContent>
-                <div dangerouslySetInnerHTML={{__html: this.state.post}} className="postInner"/>
-            </MainContent>;
-        }
-        else {
+        else if(this.state.error) {
             switch(this.state.errorCode) {
                 case 404:
                     return <MainContent>
@@ -43,6 +42,13 @@ export class BlogPost extends React.Component<any, any> {
                         <h2>Error: {this.state.post}</h2>
                     </MainContent>;
             }
+        }
+        else {
+            // TODO: Find out a better way to do this more REACT style -- save a string as JSX?
+            console.log("hello");
+            return <MainContent>
+                <div dangerouslySetInnerHTML={{__html: this.state.postData.post}} className="postInner"/>
+            </MainContent>;
         }
     }
 }
