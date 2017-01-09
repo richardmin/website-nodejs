@@ -9,7 +9,7 @@ module.exports = {
   output: {
     filename: 'app.js',
     publicPath: '/assets/js',
-    path: path.resolve('dist')
+    path: path.resolve('dist/js')
   },
   resolve: {
     extensions: ['', '.ts', '.tsx', '.js', '.jsx', '.webpack.js', '.web.js'],
