@@ -56,7 +56,7 @@
     "build": "webpack --config config/webpack.config.js",
     "start": "ts-node server.ts",
     "build-production": "NODE_ENV=production webpack --config config/webpack.production.config.js; tsc server.ts",
-    "start-production": "NODE_ENV=production nodemon server.js",
+    "start-production": "NODE_ENV=production sudo nodemon server.js",
     "test": "mocha --compilers ts:typescript-require --recursive",
     "test:watch": "yarn run test -- -watch"
   }
