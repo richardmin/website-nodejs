@@ -58,6 +58,7 @@ export class Blog extends React.Component<any, any> {
                                  postId={this.state.posts[i].id} />
                 );
             }
+            if(formatted_posts.length == 0) formatted_posts.push(<div>There isn't anything here yet!</div>);
             return <MainContent>
                 {formatted_posts}
             </MainContent>;
