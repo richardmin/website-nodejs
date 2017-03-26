@@ -8,6 +8,9 @@ declare var module: { hot: any };
 
 const rootEl = document.getElementById('app');
 
+
+require("./css/frontpage.scss");
+
 render(
   <AppContainer>
     <Router history={browserHistory}>
