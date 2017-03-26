@@ -59,12 +59,13 @@ app.get('/api/blog', function(req, res) {
 
 if(process.env.NODE_ENV === "development") {
     app.get("*", function(req, res) {
-        res.sendFile("index.html", { root: '.'});
+        res.sendFile("public/index.html", { root: '.'});
     });
 }
 
 app.listen(3000, function(err, res) {
-if (err) 
-    return console.log(err);
-console.log('listening on 3000');
+    if (err) {
+        return console.log(err);
+    }
+    console.log('listening on 3000');
 });
