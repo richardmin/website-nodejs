@@ -4,10 +4,11 @@ var WebpackNotifierPlugin = require('webpack-notifier');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    devtool: 'eval',
+    devtool: 'inline-source-map',
     entry: [
         'react-hot-loader/patch',
-        'webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr',
+        'webpack-dev-server/client?http://localhost:3000',
+        'webpack/hot/only-dev-server',
         './src/index.tsx'
     ],
     output: {
@@ -24,14 +25,10 @@ module.exports = {
     },
     module: {
         rules: [{
-                enforce: 'pre',
-                test: /\.js$/,
-                loader: 'source-map-loader',
-                exclude: [
-                    /node_modules/
-                ]
+                test: /\.tsx?$/,
+                loaders: ['babel-loader', 'ts-loader'],
+                include: path.join(__dirname, 'src')
             },
-            { test: /\.tsx?$/, loaders: ['babel-loader', 'ts-loader'] },
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
@@ -44,8 +41,19 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new WebpackNotifierPlugin({ alwaysNotify: true }),
         new ExtractTextPlugin({ filename: 'public/style.css', allChunks: true })
-    ]
+    ],
+    devServer: {
+        host: 'localhost',
+        port: 3000,
+
+        historyApiFallback: true,
+        // respond to 404s with index.html
+
+        hot: true,
+        // enable HMR on the server
+    },
 };

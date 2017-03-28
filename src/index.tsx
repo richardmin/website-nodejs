@@ -1,35 +1,34 @@
+import { AppContainer } from 'react-hot-loader'
 import * as React from 'react';
-import { render } from 'react-dom';
-const { AppContainer } = require('react-hot-loader');
+import ReactDOM from 'react-dom'
+
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import routes from 'routes';
-declare var module: { hot: any };
+// import routes from 'routes';
 
-const rootEl = document.getElementById('app');
+// const rootEl = document.getElementById('app');
 
-require("./css/frontpage.scss");
+// require("./css/frontpage.scss");
 
-render(
-  <AppContainer>
-    <Router>
-        {routes}
-    </Router>
-  </AppContainer>,
-  rootEl
-);
+/*const render = Component => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('root')
+  );
+};*/
 
-if (module.hot) {
-  module.hot.accept('routes', () => {
-    const newRoutes = require('routes').default;
+// render(routes);
 
-    render(
+/*if (module.hot) {
+  module.hot.accept('./containers/App', () => {
+    const NextApp = require('./containers/App').default;
+    ReactDOM.render(
       <AppContainer>
-        <Router>
-            {newRoutes}
-        </Router>
+        <NextApp/>
       </AppContainer>,
-      rootEl
-    )
+      document.getElementById('root')
+    );
   });
-}
+}*/
