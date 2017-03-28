@@ -16,7 +16,11 @@ module.exports = {
         path: path.resolve('dist')
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx', '.webpack.js', '.web.js'],
+        modules: [
+            path.resolve('./src'),
+            path.resolve('./node_modules')
+        ],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.webpack.js', '.web.js']
     },
     module: {
         rules: [{
@@ -35,13 +39,13 @@ module.exports = {
                     use: "css-loader",
                     publicPath: "/dist"
                 })
-            },
-        ],
+            }
+        ]
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new WebpackNotifierPlugin({ alwaysNotify: true }),
-        new ExtractTextPlugin({ filename: 'public/style.css', allChunks: true }),
-    ],
+        new ExtractTextPlugin({ filename: 'public/style.css', allChunks: true })
+    ]
 };
