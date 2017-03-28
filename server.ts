@@ -6,9 +6,7 @@ let app = express();
 var path = require('path');
 var mysql = require('mysql');
 
-// require('ts-node').register();
 import { database } from "./src/database";
-// var database = require('./src/database');
 
 if(process.env.NODE_ENV === "development") {
 

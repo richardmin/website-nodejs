@@ -19,7 +19,7 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.tsx?$/, loaders: ['babel', 'ts-loader'] },
-            { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+            { test: /\.scss$/, loader: ExtractTextPlugin.extract('css!sass') },
             { test: /\.json$/, loader: 'json-loader' },
         ],
 
@@ -36,6 +36,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin('common.js'),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
             mangle: true,
             compress: {
                 warnings: false, // Suppress uglification warnings
@@ -51,6 +52,10 @@ module.exports = {
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
-        new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]), //https://stackoverflow.com/questions/25384360/how-to-prevent-moment-js-from-loading-locales-with-webpack
+        new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]), //https://stackoverflow.com/questions/25384360/how-to-prevent-moment-js-from-loading-locales-with-webpack,
+        new ExtractTextPlugin({
+            filename: 'public/main.css',
+            allChunks: true
+        }),
     ],
 };

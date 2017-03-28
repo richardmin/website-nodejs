@@ -1,19 +1,18 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 const { AppContainer } = require('react-hot-loader');
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import routes from 'routes';
 declare var module: { hot: any };
 
 const rootEl = document.getElementById('app');
 
-
 require("./css/frontpage.scss");
 
 render(
   <AppContainer>
-    <Router history={browserHistory}>
+    <Router>
         {routes}
     </Router>
   </AppContainer>,
@@ -26,7 +25,7 @@ if (module.hot) {
 
     render(
       <AppContainer>
-        <Router history={browserHistory}>
+        <Router>
             {newRoutes}
         </Router>
       </AppContainer>,
