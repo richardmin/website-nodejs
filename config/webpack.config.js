@@ -1,10 +1,10 @@
 var webpack = require('webpack');
 var path = require('path');
-var WebpackNotifierPlugin = require('webpack-notifier');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+// var WebpackNotifierPlugin = require('webpack-notifier');
+// var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    devtool: 'inline-source-map',
+    devtool: 'eval',
     entry: [
         'react-hot-loader/patch',
         'webpack-dev-server/client?http://localhost:3000',
@@ -16,6 +16,8 @@ module.exports = {
         publicPath: '/assets/js',
         path: path.resolve('dist')
     },
+
+
     resolve: {
         modules: [
             path.resolve('./src'),
@@ -23,37 +25,31 @@ module.exports = {
         ],
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.webpack.js', '.web.js']
     },
+
     module: {
         rules: [{
-                test: /\.tsx?$/,
-                loaders: ['babel-loader', 'ts-loader'],
-                include: path.join(__dirname, 'src')
-            },
-            {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: "css-loader",
-                    publicPath: "/dist"
-                })
-            }
-        ]
+            test: /\.tsx?$/,
+            use: [
+                'babel-loader',
+                'ts-loader'
+            ],
+            exclude: /node_modules/,
+        }, ],
     },
+
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
-        new WebpackNotifierPlugin({ alwaysNotify: true }),
-        new ExtractTextPlugin({ filename: 'public/style.css', allChunks: true })
+        new webpack.NoEmitOnErrorsPlugin()
     ],
+
     devServer: {
         host: 'localhost',
         port: 3000,
 
-        historyApiFallback: true,
-        // respond to 404s with index.html
 
-        hot: true,
-        // enable HMR on the server
+        historyApiFallback: true,
+
+        hot: true
     },
 };
