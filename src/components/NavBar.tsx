@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { LinkContainer } from '../../node_modules/react-router-bootstrap';
 
 export class NavBar extends React.Component<any, any> {
     render() {
