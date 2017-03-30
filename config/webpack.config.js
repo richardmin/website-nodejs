@@ -1,14 +1,13 @@
 var webpack = require('webpack');
 var path = require('path');
-// var WebpackNotifierPlugin = require('webpack-notifier');
+var WebpackNotifierPlugin = require('webpack-notifier');
 // var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool: 'eval',
     entry: [
         'react-hot-loader/patch',
-        'webpack-dev-server/client?http://localhost:3000',
-        'webpack/hot/only-dev-server',
+        'webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr',
         './src/index.tsx'
     ],
     output: {
@@ -34,22 +33,13 @@ module.exports = {
                 'ts-loader'
             ],
             exclude: /node_modules/,
-        }, ],
+        }],
     },
 
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
+        new WebpackNotifierPlugin({ alwaysNotify: true })
     ],
-
-    devServer: {
-        host: 'localhost',
-        port: 3000,
-
-
-        historyApiFallback: true,
-
-        hot: true
-    },
 };
