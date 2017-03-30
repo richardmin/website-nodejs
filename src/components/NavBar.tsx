@@ -22,7 +22,7 @@ export class NavBar extends React.Component<any, any> {
                             
                         </Nav>
                         <Nav pullRight>
-                            <NavItem href="//www.github.com/richardmin97">Github</NavItem>
+                            <NavItem href="//www.github.com/richardmin">Github</NavItem>
                             <NavItem href="mailto:richardmin97@gmail.com">Contact Me</NavItem>
                         </Nav>
                     </Navbar.Collapse>
