@@ -1,5 +1,18 @@
 @import 'fonts';
 @import 'colours';
-// html {
-//     margin: 0px;
-// }
+* {
+    font-size: 100%;
+}
+
+.text {
+    font-family: $font-body;
+}
+
+.text-code {
+    @extend .text;
+    font-family: $font-code;
+}
+
+body {
+    background: $primary-color;
+}
