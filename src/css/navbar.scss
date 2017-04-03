@@ -1,27 +1,26 @@
 @import 'colors';
 @import 'mixins';
 .navbar-default {
-    background-color: $primary-color;
-    color: $alert-color;
+    background-color: $gray-light-0;
     border-color: $primary-color;
     .navbar-nav {
         >.active>a {
-            color: #ffffff;
-            background-color: transparent;
+            color: $white;
+            background-color: $primary-color;
             &:hover {
                 text-decoration: none;
-                background-color: $alert-color;
+                background-color: $primary-color;
                 color: $white;
             }
             &:focus {
                 text-decoration: none;
-                background-color: $alert-color;
+                background-color: $primary-color;
                 color: $white;
             }
         }
         >.open>a {
             text-decoration: none;
-            background-color: $alert-color;
+            background-color: $primary-color;
             color: $white;
         }
         >li>a {
@@ -29,12 +28,12 @@
             &:hover {
                 @include transition(background-color 200ms linear);
                 text-decoration: none;
-                background-color: $alert-color;
+                background-color: $primary-color;
                 color: $white;
             }
             &:focus {
                 text-decoration: none;
-                background-color: $alert-color;
+                background-color: $primary-color;
             }
         }
     }
