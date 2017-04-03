@@ -1,0 +1,48 @@
+@import 'colors';
+@import 'mixins';
+.navbar-default {
+    background-color: $primary-color;
+    color: $alert-color;
+    border-color: $primary-color;
+    .navbar-nav {
+        >.active>a {
+            color: #ffffff;
+            background-color: transparent;
+            &:hover {
+                text-decoration: none;
+                background-color: $alert-color;
+                color: $white;
+            }
+            &:focus {
+                text-decoration: none;
+                background-color: $alert-color;
+                color: $white;
+            }
+        }
+        >.open>a {
+            text-decoration: none;
+            background-color: $alert-color;
+            color: $white;
+        }
+        >li>a {
+            // color: #ff0000;
+            &:hover {
+                @include transition(background-color 200ms linear);
+                text-decoration: none;
+                background-color: $alert-color;
+                color: $white;
+            }
+            &:focus {
+                text-decoration: none;
+                background-color: $alert-color;
+            }
+        }
+    }
+}
+
+// Navbar-Brand is disabled
+// .navbar-brand {}
+// Navbar-Toggle is for responsive website (The toggle menu)
+// .navbar-toggle {}
+// Icon-bar is icons on responsive website menus
+// .icon-bar {}

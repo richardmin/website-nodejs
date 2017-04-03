@@ -9,7 +9,8 @@ declare var module: { hot: any };
 const rootEl = document.getElementById('app');
 
 
-require("./css/main.scss");
+require("css/main.scss");
+require("css/navbar.scss")
 
 render(
   <AppContainer>
