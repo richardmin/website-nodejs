@@ -6,10 +6,6 @@
   version "2.0.42"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-2.0.42.tgz#6ddb556f1a3b870e2e4fde131f1b13cbf3a99c4d"
 
-"@types/immutable@^3.8.6":
-  version "3.8.6"
-  resolved "https://registry.yarnpkg.com/@types/immutable/-/immutable-3.8.6.tgz#3612786c3c5ba4084cc9bf18b7eaf925438a00e5"
-
 "@types/node@^6.0.53":
   version "6.0.54"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.54.tgz#65859962ba988052cbdd5c48881395acfdd46931"
@@ -1468,9 +1464,9 @@ diff@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
 
-dom-helpers@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-2.4.0.tgz#9bb4b245f637367b1fa670274272aa28fe06c367"
+dom-helpers@^3.2.0:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.2.1.tgz#3203e07fed217bd1f424b019735582fc37b2825a"
 
 dom-walk@^0.1.0:
   version "0.1.1"
@@ -2040,7 +2036,7 @@ hoek@2.x.x:
   version "2.16.3"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
 
-hoist-non-react-statics@^1.0.3, hoist-non-react-statics@^1.2.0:
+hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
@@ -2168,7 +2164,7 @@ interpret@^0.6.4:
   version "0.6.6"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-0.6.6.tgz#fecd7a18e7ce5ca6abfb953e1f86213a49f1625b"
 
-invariant@^2.0.0, invariant@^2.1.0, invariant@^2.2.0, invariant@^2.2.1:
+invariant@^2.1.0, invariant@^2.2.0, invariant@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -2456,7 +2452,7 @@ loader-utils@^1.0.2:
     emojis-list "^2.0.0"
     json5 "^0.5.0"
 
-lodash-es@^4.2.0, lodash-es@^4.2.1:
+lodash-es@^4.2.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.4.tgz#dcc1d7552e150a0640073ba9cb31d70f032950e7"
 
@@ -3512,16 +3508,16 @@ rc@^1.0.1, rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
-react-bootstrap@^0.30.7:
-  version "0.30.7"
-  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.30.7.tgz#39da80088693ecb71e8e63b5bdc313571fd993d1"
+react-bootstrap@^0.30.8:
+  version "0.30.8"
+  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.30.8.tgz#4ceca8e138ce2351228c4a58d59db00c003ca9c0"
   dependencies:
     babel-runtime "^6.11.6"
     classnames "^2.2.5"
-    dom-helpers "^2.4.0"
+    dom-helpers "^3.2.0"
     invariant "^2.2.1"
     keycode "^2.1.2"
-    react-overlays "^0.6.10"
+    react-overlays "^0.6.12"
     react-prop-types "^0.4.0"
     uncontrollable "^4.0.1"
     warning "^3.0.0"
@@ -3549,12 +3545,12 @@ react-hot-loader@3.0.0-beta.6:
     redbox-react "^1.2.5"
     source-map "^0.4.4"
 
-react-overlays@^0.6.10:
-  version "0.6.10"
-  resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.6.10.tgz#e7e52dad47f00a0fc784eb044428c3a9e874bfa3"
+react-overlays@^0.6.12:
+  version "0.6.12"
+  resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.6.12.tgz#a079c750cc429d7db4c7474a95b4b54033e255c3"
   dependencies:
     classnames "^2.2.5"
-    dom-helpers "^2.4.0"
+    dom-helpers "^3.2.0"
     react-prop-types "^0.4.0"
     warning "^3.0.0"
 
@@ -3569,25 +3565,6 @@ react-proxy@^3.0.0-alpha.0:
   resolved "https://registry.yarnpkg.com/react-proxy/-/react-proxy-3.0.0-alpha.1.tgz#4400426bcfa80caa6724c7755695315209fa4b07"
   dependencies:
     lodash "^4.6.1"
-
-react-redux@^4.0.0:
-  version "4.4.6"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-4.4.6.tgz#4b9d32985307a11096a2dd61561980044fcc6209"
-  dependencies:
-    hoist-non-react-statics "^1.0.3"
-    invariant "^2.0.0"
-    lodash "^4.2.0"
-    loose-envify "^1.1.0"
-
-react-redux@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.1.tgz#84a41bd4cdd180452bb6922bc79ad25bd5abb7c4"
-  dependencies:
-    hoist-non-react-statics "^1.0.3"
-    invariant "^2.0.0"
-    lodash "^4.2.0"
-    lodash-es "^4.2.0"
-    loose-envify "^1.1.0"
 
 react-router-bootstrap@^0.23.1:
   version "0.23.1"
@@ -3709,23 +3686,7 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
-redux-devtools-instrument@^1.0.1:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/redux-devtools-instrument/-/redux-devtools-instrument-1.5.0.tgz#a92111b8d10cf41139e0f1fdd5e35fc7d8bec5a4"
-  dependencies:
-    lodash "^4.2.0"
-    symbol-observable "^0.2.4"
-
-redux-devtools@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/redux-devtools/-/redux-devtools-3.3.1.tgz#e2ed0b5335310935a25bbc73c60c09e522182850"
-  dependencies:
-    lodash "^4.2.0"
-    react-redux "^4.0.0"
-    redux "^3.5.2"
-    redux-devtools-instrument "^1.0.1"
-
-redux@^3.5.2, redux@^3.6.0:
+redux@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.6.0.tgz#887c2b3d0b9bd86eca2be70571c27654c19e188d"
   dependencies:
@@ -4206,10 +4167,6 @@ svgo@^0.7.0:
     mkdirp "~0.5.1"
     sax "~1.2.1"
     whet.extend "~0.9.9"
-
-symbol-observable@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-0.2.4.tgz#95a83db26186d6af7e7a18dbd9760a2f86d08f40"
 
 symbol-observable@^1.0.2:
   version "1.0.4"
