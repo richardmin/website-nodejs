@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var WebpackNotifierPlugin = require('webpack-notifier');
+// var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool: 'eval',
@@ -15,25 +16,28 @@ module.exports = {
         path: path.resolve('dist')
     },
     resolve: {
-        extensions: ['', '.ts', '.tsx', '.js', '.jsx', '.webpack.js', '.web.js'],
-        modulesDirectories: ['src', 'node_modules'],
-    },
-    module: {
-        loaders: [
-            { test: /\.tsx?$/, loaders: ['babel', 'ts-loader'] },
-            { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
-            { test: /\.json$/, loader: 'json-loader' },
+        modules: [
+            path.resolve('./src'),
+            path.resolve('./node_modules')
         ],
-
-        preloaders: [
-            { test: /\.js$/, loader: 'source-map-loader' },
-        ]
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.webpack.js', '.web.js']
     },
+
+    module: {
+        rules: [{
+            test: /\.tsx?$/,
+            use: [
+                'babel-loader',
+                'ts-loader'
+            ],
+            exclude: /node_modules/,
+        }],
+    },
+
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
-        new WebpackNotifierPlugin({ alwaysNotify: true }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new WebpackNotifierPlugin({ alwaysNotify: true })
     ],
-
-    // target: 'node',
 };

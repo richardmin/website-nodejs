@@ -6,19 +6,16 @@ let app = express();
 var path = require('path');
 var mysql = require('mysql');
 
-// require('ts-node').register();
 import { database } from "./src/database";
-// var database = require('./src/database');
 
 if(process.env.NODE_ENV === "development") {
 
-    var webpack = require('webpack');
-    var config = require('./config/webpack.config');
-    var compiler = webpack(config);
-    var WebpackDevServer = require('webpack-dev-server');
+    let webpack = require('webpack');
+    let config = require('./config/webpack.config');
+    let compiler = webpack(config);
 
-    var webpackDevMiddleware = require('webpack-dev-middleware');
-    var webpackHotMiddleware = require('webpack-hot-middleware');
+    let webpackDevMiddleware = require('webpack-dev-middleware');
+    let webpackHotMiddleware = require('webpack-hot-middleware');
 
     app.use(webpackDevMiddleware(compiler, {
         publicPath: config.output.publicPath,

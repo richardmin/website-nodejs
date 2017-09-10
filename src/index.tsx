@@ -1,37 +1,25 @@
+import { AppContainer } from 'react-hot-loader';
 import * as React from 'react';
-import { render } from 'react-dom';
-const { AppContainer } = require('react-hot-loader');
-import { Router, Route, Link, browserHistory } from 'react-router';
-
-import routes from 'routes';
-declare var module: { hot: any };
-
-const rootEl = document.getElementById('app');
+import * as ReactDOM from 'react-dom';
+import App from 'views/App';
 
 
-require("css/main.scss");
-require("css/navbar.scss")
-
-render(
+ReactDOM.render(
   <AppContainer>
-    <Router history={browserHistory}>
-        {routes}
-    </Router>
+    <App />
   </AppContainer>,
-  rootEl
+  document.getElementById('app')
 );
 
+// Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('routes', () => {
-    const newRoutes = require('routes').default;
-
-    render(
+  module.hot.accept('views/App', () => {
+    const NextApp = require('views/App').default;
+    ReactDOM.render(
       <AppContainer>
-        <Router history={browserHistory}>
-            {newRoutes}
-        </Router>
+        <NextApp/>
       </AppContainer>,
-      rootEl
-    )
+      document.getElementById('app')
+    );
   });
 }
