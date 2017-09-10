@@ -15,8 +15,6 @@ module.exports = {
         publicPath: '/assets/js',
         path: path.resolve('dist')
     },
-
-
     resolve: {
         modules: [
             path.resolve('./src'),
