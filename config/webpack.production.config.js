@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool: 'source-map',
@@ -8,23 +8,37 @@ module.exports = {
         './src/index.tsx'
     ],
     output: {
-        filename: 'app.js',
+        filename: '[name]',
         publicPath: '/assets/js',
         path: path.resolve('dist/js')
     },
     resolve: {
-        extensions: ['', '.ts', '.tsx', '.js', '.jsx', '.webpack.js', '.web.js'],
-        modulesDirectories: ['src', 'node_modules'],
+        modules: [
+            path.resolve('./src'),
+            path.resolve('./node_modules')
+        ],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.webpack.js', '.web.js']
     },
     module: {
-        loaders: [
-            { test: /\.tsx?$/, loaders: ['babel', 'ts-loader'] },
-            { test: /\.scss$/, loader: ExtractTextPlugin.extract('css!sass') },
-            { test: /\.json$/, loader: 'json-loader' },
-        ],
-
-        preloaders: [
-            { test: /\.js$/, loader: 'source-map-loader' },
+        rules: [{
+                enforce: 'pre',
+                test: /\.js$/,
+                loader: 'source-map-loader'
+            }, {
+                test: /\.tsx?$/,
+                use: [
+                    'babel-loader',
+                    'ts-loader'
+                ]
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('css!sass')
+            },
+            {
+                test: /\.json$/,
+                loader: 'json-loader'
+            }
         ]
     },
     plugins: [
@@ -34,7 +48,6 @@ module.exports = {
             }
         }),
         new webpack.optimize.CommonsChunkPlugin('common.js'),
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             mangle: true,

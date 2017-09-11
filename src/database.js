@@ -1,6 +1,7 @@
 "use strict";
+exports.__esModule = true;
 var mysql = require('mysql');
-var database = (function () {
+var database = /** @class */ (function () {
     function database(database) {
         this.database = database;
     }
