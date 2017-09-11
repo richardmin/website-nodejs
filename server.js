@@ -1,17 +1,15 @@
 'use strict';
+exports.__esModule = true;
 require('dotenv').config();
 var express = require('express');
 var app = express();
 var path = require('path');
 var mysql = require('mysql');
-// require('ts-node').register();
 var database_1 = require("./src/database");
-// var database = require('./src/database');
 if (process.env.NODE_ENV === "development") {
     var webpack = require('webpack');
     var config = require('./config/webpack.config');
     var compiler = webpack(config);
-    var WebpackDevServer = require('webpack-dev-server');
     var webpackDevMiddleware = require('webpack-dev-middleware');
     var webpackHotMiddleware = require('webpack-hot-middleware');
     app.use(webpackDevMiddleware(compiler, {
@@ -48,11 +46,12 @@ app.get('/api/blog', function (req, res) {
 });
 if (process.env.NODE_ENV === "development") {
     app.get("*", function (req, res) {
-        res.sendFile("index.html", { root: '.' });
+        res.sendFile("public/index-debug.html", { root: '.' });
     });
 }
 app.listen(3000, function (err, res) {
-    if (err)
+    if (err) {
         return console.log(err);
+    }
     console.log('listening on 3000');
 });

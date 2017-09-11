@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
 var WebpackNotifierPlugin = require('webpack-notifier');
-// var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool: 'eval',
@@ -13,7 +12,7 @@ module.exports = {
     output: {
         filename: 'app.js',
         publicPath: '/assets/js',
-        path: path.resolve('dist')
+        path: path.resolve('dist/js')
     },
     resolve: {
         modules: [

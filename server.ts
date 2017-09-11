@@ -56,7 +56,7 @@ app.get('/api/blog', function(req, res) {
 
 if(process.env.NODE_ENV === "development") {
     app.get("*", function(req, res) {
-        res.sendFile("public/index.html", { root: '.'});
+        res.sendFile("public/index-debug.html", { root: '.'});
     });
 }
 
